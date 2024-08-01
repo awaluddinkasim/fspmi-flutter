@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fspmi/pages/home.dart';
 import 'package:fspmi/pages/pengaduan.dart';
+import 'package:fspmi/pages/pengeluaran.dart';
 
 class MainApp extends StatefulWidget {
   const MainApp({super.key});
@@ -15,6 +16,7 @@ class _MainAppState extends State<MainApp> {
   List pages = [
     const HomeScreen(),
     const PengaduanScreen(),
+    const PengeluaranScreen(),
   ];
 
   @override
@@ -36,6 +38,10 @@ class _MainAppState extends State<MainApp> {
           BottomNavigationBarItem(
             icon: Icon(Icons.message),
             label: "Pengaduan",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.outbox),
+            label: "Pengeluaran",
           ),
         ],
       ),
