@@ -7,6 +7,7 @@ import 'package:fspmi/shared/services/pengaduan_service.dart';
 import 'package:fspmi/shared/utils/helpers.dart';
 import 'package:fspmi/shared/widgets/dialog/loading.dart';
 import 'package:fspmi/shared/widgets/form/input_outline.dart';
+import 'package:fspmi/shared/widgets/image_preview.dart';
 
 FlutterSecureStorage storage = const FlutterSecureStorage();
 
@@ -111,8 +112,25 @@ class _PengaduanDetailState extends State<PengaduanDetail> {
                               const SizedBox(width: 8),
                               SizedBox(
                                 width: 80,
-                                child: Image.network(
-                                  "${Constants.baseUrl}/f/foto-lampiran/${pengaduan!.lampiran}",
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ImagePreview(
+                                          tag: 'image-${pengaduan!.lampiran}',
+                                          imageUrl:
+                                              "${Constants.baseUrl}/f/foto-lampiran/${pengaduan!.lampiran}",
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  child: Hero(
+                                    tag: 'image-${pengaduan!.lampiran}',
+                                    child: Image.network(
+                                      "${Constants.baseUrl}/f/foto-lampiran/${pengaduan!.lampiran}",
+                                    ),
+                                  ),
                                 ),
                               ),
                             ],
