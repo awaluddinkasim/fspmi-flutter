@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fspmi/pages/faq.dart';
 import 'package:fspmi/pages/home.dart';
 import 'package:fspmi/pages/pengaduan.dart';
 import 'package:fspmi/pages/pengeluaran.dart';
@@ -17,6 +18,7 @@ class _MainAppState extends State<MainApp> {
     const HomeScreen(),
     const PengaduanScreen(),
     const PengeluaranScreen(),
+    const FaqScreen(),
   ];
 
   @override
@@ -24,6 +26,7 @@ class _MainAppState extends State<MainApp> {
     return Scaffold(
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
         onTap: (value) {
           setState(() {
@@ -42,6 +45,10 @@ class _MainAppState extends State<MainApp> {
           BottomNavigationBarItem(
             icon: Icon(Icons.outbox),
             label: "Pengeluaran",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.question_mark_rounded),
+            label: "FAQ",
           ),
         ],
       ),
