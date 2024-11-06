@@ -127,7 +127,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 },
               ),
               InputImg(
-                label: "Upload Foto Diri",
+                label: "Upload Foto Diri (Max. 2 MB)",
                 child: fotoProfile == null
                     ? const Text(
                         "Pilih Gambar",
@@ -181,7 +181,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 },
               ),
               InputImg(
-                label: "Upload Foto KTP",
+                label: "Upload Foto KTP (Max. 2 MB)",
                 child: fotoKtp == null
                     ? const Text(
                         "Pilih Gambar",

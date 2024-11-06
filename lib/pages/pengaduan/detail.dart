@@ -162,7 +162,7 @@ class _PengaduanDetailState extends State<PengaduanDetail> {
                           ),
                         ),
                         FilledButton.icon(
-                          onPressed: pengaduan!.status == 'selesai'
+                          onPressed: pengaduan?.status == 'selesai'
                               ? null
                               : () {
                                   showModalBottomSheet(

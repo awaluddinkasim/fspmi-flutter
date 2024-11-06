@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fspmi/cubit/auth_cubit.dart';
 import 'package:fspmi/cubit/auth_state.dart';
 import 'package:fspmi/pages/auth/login.dart';
+import 'package:fspmi/pages/password.dart';
 import 'package:fspmi/shared/constants.dart';
 import 'package:fspmi/shared/widgets/dialog/loading.dart';
 
@@ -59,6 +60,20 @@ class UserScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 32),
+            FilledButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const UpdatePasswordScreen(),
+                  ),
+                );
+              },
+              style: const ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll<Color>(Colors.lightBlue),
+              ),
+              child: const Text("Ubah Password"),
+            ),
             BlocListener<AuthCubit, AuthState>(
               listener: (context, state) {
                 if (state is AuthLoading) {

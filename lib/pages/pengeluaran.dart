@@ -3,6 +3,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:fspmi/models/pengeluaran.dart';
 import 'package:fspmi/shared/services/pengeluaran_service.dart';
 import 'package:fspmi/shared/utils/helpers.dart';
+import 'package:intl/intl.dart';
 
 FlutterSecureStorage storage = const FlutterSecureStorage();
 
@@ -38,6 +39,8 @@ class _PengeluaranScreenState extends State<PengeluaranScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final formatter = NumberFormat('#,###');
+
     return RefreshIndicator(
       onRefresh: _fetch,
       child: SingleChildScrollView(
@@ -75,7 +78,7 @@ class _PengeluaranScreenState extends State<PengeluaranScreen> {
                     children: [
                       Text(item.keperluan, style: const TextStyle(fontSize: 16)),
                       Text(
-                        "Rp. ${item.nominal}",
+                        "Rp. ${formatter.format(item.nominal)}",
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
